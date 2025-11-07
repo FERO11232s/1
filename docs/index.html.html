@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air Express | Innovación sin límites</title>
+
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
+    body {background: linear-gradient(135deg, #050505, #0a0f1c); color: #fff; overflow-x: hidden;}
+    header {background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(10px); padding: 20px 50px;
+      display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0;
+      border-bottom: 1px solid #00f0ff40; box-shadow: 0 0 15px #00f0ff30;}
+    header h1 {font-size: 1.8em; color: #00f0ff; letter-spacing: 2px; text-shadow: 0 0 10px #00f0ff;}
+    nav a {color: #a0a0a0; margin-left: 30px; text-decoration: none; transition: 0.3s;}
+    nav a:hover {color: #00f0ff; text-shadow: 0 0 10px #00f0ff;}
+    .hero {text-align: center; padding: 100px 20px;
+      background: url('https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover; position: relative;}
+    .hero::before {content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.7);}
+    .hero h2, .hero p {position: relative;}
+    .hero h2 {font-size: 3em; color: #00f0ff; text-shadow: 0 0 20px #00f0ff;}
+    .hero p {font-size: 1.2em; color: #ddd; margin-top: 15px;}
+    .product-section {padding: 60px 40px;}
+    .section-title {text-align: center; color: #00f0ff; font-size: 2em; margin-bottom: 40px; text-shadow: 0 0 10px #00f0ff;}
+    .product-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;}
+    .product-card {background: #081733; border: 1px solid #00f0ff40; border-radius: 15px; overflow: hidden;
+      transition: 0.3s; box-shadow: 0 0 10px #00f0ff20;}
+    .product-card:hover {transform: translateY(-8px); box-shadow: 0 0 25px #00f0ff60;}
+    .product-card img {width: 100%; height: 280px; object-fit: contain; background-color: #000; border-bottom: 1px solid #00f0ff30;}
+    .product-info {padding: 20px; text-align: center;}
+    .product-info h3 {color: #00f0ff; font-size: 1.2em; margin-bottom: 10px;}
+    .product-info p {color: #bbb; font-size: 0.9em; margin-bottom: 15px;}
+    .price {color: #fff; font-size: 1.1em; font-weight: bold; margin-bottom: 10px;}
+    .btn {background: #00f0ff; color: #000; border: none; padding: 10px 20px; border-radius: 25px;
+      font-weight: bold; cursor: pointer; transition: 0.3s;}
+    .btn:hover {background: #fff; color: #00f0ff; box-shadow: 0 0 20px #00f0ff;}
+    footer {text-align: center; padding: 25px; background: #000; border-top: 1px solid #00f0ff30;
+      color: #00f0ff; box-shadow: 0 -5px 25px #00f0ff20; font-size: 0.9em;}
+    /* --- MODAL DE COMPRA --- */
+    .modal {position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; visibility: hidden; opacity: 0; transition: 0.3s;}
+    .modal.active {visibility: visible; opacity: 1;}
+    .modal-content {background: #0a0f1c; border: 1px solid #00f0ff40; border-radius: 15px; padding: 30px;
+      text-align: center; width: 90%; max-width: 400px; box-shadow: 0 0 25px #00f0ff40;}
+    .modal-content h3 {color: #00f0ff; margin-bottom: 20px;}
+    select, button.pay-btn {margin: 10px 0; padding: 10px; border-radius: 10px; border: none; width: 100%; font-size: 1em;}
+    select {background: #000; color: #00f0ff; border: 1px solid #00f0ff80;}
+    button.pay-btn {background: #00f0ff; color: #000; font-weight: bold; cursor: pointer;}
+    button.close {background: none; color: #888; border: none; cursor: pointer; margin-top: 10px;}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Air Express</h1>
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Productos</a>
+    <a href="#">Ofertas</a>
+    <a href="#">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Envío seguro Ambato</h2>
+  <p>Innovación, estilo y precio justo en un solo lugar.</p>
+</section>
+
+<section class="product-section">
+  <h2 class="section-title">Productos Disponibles</h2>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="imagenes/audifonos inalambricos.jpg" alt="Audífonos inalámbricos">
+      <div class="product-info">
+        <h3>Audífonos Inalámbricos</h3>
+        <p>Calidad de sonido excepcional y batería de larga duración.</p>
+        <div class="price">$54.99 / docena</div>
+        <button class="btn comprar-btn">Comprar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="imagenes/audifonos inalambricos.jpg" alt="Audífonos inalámbricos">
+      <div class="product-info">
+        <h3>Audífonos Inalámbricos</h3>
+        <p>Ideal para uso domestico</p>
+        <div class="price">$11.99 / unidad</div>
+        <button class="btn comprar-btn">Comprar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL INTERACTIVO -->
+<div class="modal" id="modalCompra">
+  <div class="modal-content" id="modalContent">
+    <h3>Selecciona tu lugar de entrega</h3>
+    <select id="selectLugar">
+      <option value="">-- Selecciona ubicación --</option>
+      <option value="1°16'04.3\"S 78°36'40.6\"W">Ambato Centro</option>
+      <option value="1°15'59.0\"S 78°37'10.0\"W">Huachi Chico</option>
+      <option value="1°14'54.0\"S 78°35'30.0\"W">Ficoa</option>
+    </select>
+    <button class="pay-btn" id="btnLugar">Continuar</button>
+    <button class="close" id="cerrarModal">Cancelar</button>
+  </div>
+</div>
+
+<footer>
+  Comunicate — 095 956 9841
+  Whatsapp  +593 95 956 9841
+</footer>
+
+<script>
+  const modal = document.getElementById("modalCompra");
+  const modalContent = document.getElementById("modalContent");
+  const comprarBtns = document.querySelectorAll(".comprar-btn");
+  const cerrarModal = document.getElementById("cerrarModal");
+
+  comprarBtns.forEach(btn => {
+    btn.addEventListener("click", () => modal.classList.add("active"));
+  });
+
+  cerrarModal.addEventListener("click", () => modal.classList.remove("active"));
+
+  // Etapa 1: Seleccionar ubicación
+  document.getElementById("btnLugar").addEventListener("click", () => {
+    const lugar = document.getElementById("selectLugar").value;
+    if (!lugar) return alert("Selecciona una ubicación.");
+
+    // Cambiar contenido a selección de hora
+    modalContent.innerHTML = `
+      <h3>Selecciona hora de entrega</h3>
+      <select id="selectHora">
+        <option value="">-- Selecciona hora --</option>
+        <option value="09:00">09:00 AM</option>
+        <option value="12:00">12:00 PM</option>
+        <option value="14:00">14:00 PM</option>
+      </select>
+      <button class="pay-btn" id="btnHora">Continuar</button>
+      <button class="close" id="cerrarModal">Cancelar</button>
+    `;
+
+    document.getElementById("cerrarModal").addEventListener("click", () => modal.classList.remove("active"));
+
+    document.getElementById("btnHora").addEventListener("click", () => {
+      const hora = document.getElementById("selectHora").value;
+      if (!hora) return alert("Selecciona una hora.");
+
+      // Etapa 3: Pagar
+      modalContent.innerHTML = `
+        <h3>Selecciona método de pago</h3>
+        <select id="selectPago">
+          <option value="">-- Selecciona banco --</option>
+          <option value="pichincha">Banco Pichincha</option>
+          <option value="guayaquil">Banco Guayaquil</option>
+          <option value="produbanco">Produbanco</option>
+        </select>
+        <button class="pay-btn" id="btnPagar">Pagar</button>
+        <button class="close" id="cerrarModal">Cancelar</button>
+      `;
+
+      document.getElementById("cerrarModal").addEventListener("click", () => modal.classList.remove("active"));
+      document.getElementById("btnPagar").addEventListener("click", () => {
+        const banco = document.getElementById("selectPago").value;
+        if (!banco) return alert("Selecciona un método de pago.");
+        if (banco === "pichincha") {
+          window.location.href = "https://www.pichincha.com/";
+        } else {
+          alert("Método de pago no disponible aún.");
+          modal.classList.remove("active");
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
